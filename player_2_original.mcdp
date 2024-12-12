@@ -1,0 +1,11 @@
+catalog {
+    
+    provides torque [Nm]
+    provides partcost [USD]
+    requires power [W]
+    requires invprofit [USD]
+
+    10 Nm, 10 USD <- i_0 -> 10 W, 4 USD
+    12 Nm, 12 USD <- i_1 -> 11 W, 5.2 USD
+
+}

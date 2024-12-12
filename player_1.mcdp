@@ -1,0 +1,9 @@
+catalogue{ 
+    provides    lift [N]
+    requires    torque [Nm]
+    requires    partcost [USD]
+    requires    invprofit [USD]
+
+    15 N <- i_0 -> 14 Nm, 4 USD, 4 USD
+    12 N <- i_1 -> 8 Nm, 3 USD, 4 USD
+}

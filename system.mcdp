@@ -1,0 +1,18 @@
+mcdp {
+    provides lift [N]
+    requires power [W]
+    requires invprofit_1 [USD]
+    requires invprofit_2 [USD]
+
+    player1 = instance `player_1
+    player2 = instance `player_2
+
+    lift provided by player1 >= provided lift
+    torque provided by player2 >= torque required by player1
+    partcost provided by player2 >= partcost required by player1
+
+    required power >= power required by player2
+    required invprofit_1 >= invprofit required by player1
+    required invprofit_2 >= invprofit required by player2
+
+}

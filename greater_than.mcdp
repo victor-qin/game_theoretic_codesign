@@ -1,0 +1,7 @@
+mcdp{
+    provides output
+    requires input
+
+    required input >= provided output
+    required input <= provided output
+}

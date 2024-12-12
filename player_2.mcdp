@@ -1,0 +1,10 @@
+catalogue{ 
+    provides    torque [Nm]
+    provides    partcost [USD]
+    requires    power [W]
+    requires    invprofit [USD]
+
+    9 Nm, 5 USD <- i_0 -> 11 W, 5 USD
+    14 Nm, 6 USD <- i_1 -> 12 W, 9 USD
+    14 Nm, 3 USD <- i_2 -> 9 W, 9 USD
+}

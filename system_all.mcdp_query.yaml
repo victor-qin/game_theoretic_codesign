@@ -1,0 +1,12 @@
+title: Query_1
+description: 'Query for solutions to the system.'
+model: "`system"
+query:
+  query_type: FixFunMinRes
+  min_f: 
+    lift: '10 N'
+  max_r:
+    power: '100 W'
+    invprofit_1: '10000 USD'
+    invprofit_2: '10000 USD'
+  optimize_for: ['invprofit_1', 'invprofit_2', 'power']
