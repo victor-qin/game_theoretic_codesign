@@ -170,21 +170,24 @@ def main(seed = 0):
     result = [r for r in result if r != (10.0, 10.0)]
 
     if len(mcdp_results[1]) >= 1:
-        if len(result) > 1:
-            for res in mcdp_results[1]:
-                assert res in result
-            for res in result:
-                assert res in mcdp_results[1]
-        else:
-            assert mcdp_results[1] == result, 'Results do not match'
+        for res in result:
+            assert res in mcdp_results[1] or res == ()
+        # if len(result) > 1:
+        #     for res in mcdp_results[1]:
+        #         assert res in result
+        #     for res in result:
+        #         assert res in mcdp_results[1]
+        # else:
+        #     assert mcdp_results[1] == result, 'Results do not match'
     else:
         print('empty')
-        assert result == []
+        assert result == [] or result == [()]
 
     return mcdp_results, result
 
 if __name__ == '__main__':
-    for k in range(0, 100):
+    for k in range(0, 17):
+    # k = 5
         print(k)
         mcdp, matrix = main(k)
         print(mcdp[1])

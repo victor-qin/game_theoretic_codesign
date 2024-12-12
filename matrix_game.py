@@ -116,8 +116,8 @@ def main(players):
     for i in range(len(values['player_1'])):
         for j in range(len(values['player_2'])):
             # if i == np.argmin(game[:, j, 0]) and j == np.argmin(game[i, :, 1]):
-            if i in np.where(game[:, j, 0] == game[:, j, 0].min())[0] \
-                and j in np.where(game[i, :, 1] == game[i, :, 1].min())[0]:
+            if len(np.where(game[:, j, 0] == game[:, j, 0].min())[0]) == 1 and i in np.where(game[:, j, 0] == game[:, j, 0].min())[0] \
+                and len(np.where(game[i, :, 1] == game[i, :, 1].min())[0]) == 1 and j in np.where(game[i, :, 1] == game[i, :, 1].min())[0]:
                 # print(f'Nash equilibrium: {i, j} \t Value: {game[i, j, :]}')
                 # print('Player 1:', raw_imps['player_1'][i])
                 # print('Player 2:', raw_imps['player_2'][j])
