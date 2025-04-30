@@ -1,0 +1,13 @@
+title: test_solve
+description: 'Query for solutions to the system.'
+model: "`test_v2"
+query:
+  query_type: FixResMaxFun
+  min_f:
+    z1: '0 dimensionless'
+    z2: '0 dimensionless'
+    x1: '0 dimensionless'
+    x2: '0 dimensionless'
+  max_r:
+    C: '1 dimensionless'
+  optimize_for: ['z1']

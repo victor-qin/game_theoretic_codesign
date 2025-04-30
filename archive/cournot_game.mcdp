@@ -1,0 +1,25 @@
+mcdp{
+    provides    profit_1 [USD]
+    provides    profit_2 [USD]
+    provides    cost_1 [USD]
+    provides    cost_2 [USD]
+    requires    quantity_1 [count]
+    requires    quantity_2 [count]
+    requires    invprofit_1 [USD]
+    requires    invprofit_2 [USD]
+
+    x1 = 1 USD / count
+    x2 = 1 USD / count
+
+    price = 1 / (required quantity_1 + required quantity_2)
+
+    revenue_1 = -price * required quantity_1
+    x1 * required quantity_1 >= provided cost_1
+    revenue_1 - x1 * required quantity_1 >= provided profit_1
+    required invprofit_1 >= 100 USD + provided cost_1 - revenue_1
+
+    revenue_2 = -price * required quantity_2
+    x1 * required quantity_2 >= provided cost_2
+    revenue_1 - x2 * required quantity_2 >= provided profit_2
+    required invprofit_2 >= 100 USD + provided cost_2 - revenue_2
+}

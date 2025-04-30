@@ -1,0 +1,30 @@
+mcdp{
+    requires    invprofit [USD]
+    provides    quantity [count]
+
+    intercept = 10 [USD / count]
+    interceptsq = 100 [USD^2 / count^2]
+    negintercept = -10 [USD / count]
+    unit = 1 [USD / count]
+    x1 = 2 [USD / count]
+    M = 1000 [USD]
+
+    #required invprofit >= quantity * x1 + negprice * quantity
+    #negprice = quantity * unit - intercept
+
+    #negprice = provided quantity * unit - intercept
+    #price = sqrt(pow(negprice, 2))
+    #cost = provided quantity * x1
+    #required invprofit >= cost + negprice * provided quantity
+
+    mprice = provided quantity * unit
+    #negprice = provided quantity * unit - intercept
+    negpricemod = 2 * provided quantity * unit - 2 * intercept
+
+    sqmprice = pow(mprice, 2)
+    sqprice = sqmprice + negpricemod * negintercept - interceptsq
+    price = sqrt(sqprice)
+    cost = provided quantity * x1
+    required invprofit >= cost + price * provided quantity
+
+}

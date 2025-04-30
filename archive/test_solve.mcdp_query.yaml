@@ -1,0 +1,10 @@
+title: test_solve
+description: 'Query for solutions to the system.'
+model: "`test_single"
+query:
+  query_type: FixFunMinRes
+  min_f:
+    quantity: '4 count'
+  max_r:
+    invprofit: '10000 USD'
+  optimize_for: ['invprofit']

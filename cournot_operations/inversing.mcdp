@@ -1,0 +1,9 @@
+mcdp {
+    requires    C [dimensionless]
+    provides    x1 [dimensionless]
+    provides    x2 [dimensionless]
+    provides    y [dimensionless]
+
+    c = 1 dimensionless
+    required C >= provided x1 + provided x2 + provided y
+}

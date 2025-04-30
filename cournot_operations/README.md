@@ -1,0 +1,1 @@
+`test_v2.mcdp` and `test_v2.mcdp_query.yaml` is the basis for `game_solver.py` to make copies and run queries. Solving for two players involves getting both direct output `z1` and `x1`, then solving for `z1` alone - solving both gives a Pareto, solving `z1` "maximizes" revenue and then correlation to Pareto front gives `x1`.

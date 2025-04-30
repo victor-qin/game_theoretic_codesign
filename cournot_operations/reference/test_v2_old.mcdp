@@ -1,0 +1,30 @@
+mcdp{
+    requires    C [dimensionless]
+    provides    z1 [dimensionless]
+    provides    z2 [dimensionless]
+    provides    x1 [dimensionless]
+    provides    x2 [dimensionless]
+
+    inverse = instance `inversing
+    multiply1 = instance `multiplying
+    multiply2 = instance `multiplying
+
+    c1 = 0.0 dimensionless
+    c2 = 0.0 dimensionless
+
+    required C >= C required by inverse
+    x1 provided by inverse >= x required by multiply1
+    x2 provided by inverse >= x required by multiply2
+
+    y provided by inverse >= y required by multiply1
+    y provided by inverse >= y required by multiply2
+
+    z provided by multiply1 >= provided z1
+    z provided by multiply2 >= provided z2
+
+    x1 provided by inverse >= c1
+    x2 provided by inverse >= c2
+
+    x1 provided by inverse >= provided x1
+    x2 provided by inverse >= provided x2
+}

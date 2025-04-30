@@ -1,0 +1,6 @@
+mcdp{
+    provides    quantity [count]
+    requires    cost [USD]
+    x1 = 1 USD / count
+    required cost / x1 >= provided quantity
+}

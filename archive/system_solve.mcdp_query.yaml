@@ -1,0 +1,12 @@
+title: Solve_Game
+description: 'Query for solutions to the system.'
+model: "`system_game"
+query:
+  query_type: FixFunMinRes
+  min_f:
+    profit_1: '0 USD'
+    profit_1: '0 USD'
+  max_r:
+    invprofit_1: '10000 USD'
+    invprofit_2: '10000 USD'
+  optimize_for: ['invprofit_1', 'invprofit_2']

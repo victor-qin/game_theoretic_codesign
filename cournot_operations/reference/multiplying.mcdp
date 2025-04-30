@@ -1,0 +1,7 @@
+mcdp{
+    requires    x [dimensionless]
+    requires    y [dimensionless]
+    provides    z [dimensionless]
+
+    required x * required y >= provided z
+}

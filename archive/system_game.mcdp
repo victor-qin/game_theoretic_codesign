@@ -1,0 +1,23 @@
+mcdp{
+    provides profit_1 [USD]
+    provides profit_2 [USD]
+    requires invprofit_1 [USD]
+    requires invprofit_2 [USD]
+
+    player1 = instance `player_1
+    player2 = instance `player_2
+    game = instance `cournot_game
+
+    quantity provided by player1 >= quantity_1 required by game
+    quantity provided by player2 >= quantity_2 required by game
+
+    cost_1 provided by game >= cost required by player1
+    cost_2 provided by game >= cost required by player2
+
+    required invprofit_1 >= invprofit_1 required by game
+    required invprofit_2 >= invprofit_2 required by game
+
+    profit_1 provided by game >= provided profit_1
+    profit_2 provided by game >= provided profit_2
+
+}
