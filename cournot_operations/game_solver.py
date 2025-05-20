@@ -70,11 +70,11 @@ def main():
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     print(f"Changed working directory to: {current_dir}")
     query_suffix = '.mcdp_query.yaml'
-    query_filename = 'test_v2'
-    z1_filename = 'test_v2_z1'
-    z2_filename = 'test_v2_z2'
-    z1_x1_filename = 'test_v2_z1_x1'
-    z2_x2_filename = 'test_v2_z2_x2'
+    query_filename = 'cournot'
+    z1_filename = 'cournot_z1'
+    z2_filename = 'cournot_z2'
+    z1_x1_filename = 'cournot_z1_x1'
+    z2_x2_filename = 'cournot_z2_x2'
     # commands = [
     #     [ 'docker', 'run', '-it', '--rm', '-v', f'{os.getcwd()}:{os.getcwd()}', '-w', f'{os.getcwd()}',
     #      'zupermind/mcdp:2024', 'bash', '-c', f'mcdp-solve-query {z1_filename} --out out/output_all'],# '--out', 'out/output_all'],
@@ -83,7 +83,7 @@ def main():
     # ]
 
     # Load the model
-    with open('test_v2.mcdp', 'r') as f:
+    with open('cournot.mcdp', 'r') as f:
         model = f.read()
 
     x1_old = float(re.search(r'[0-9]*\.[0-9]+',re.search(r'c1 = [0-9]*\.[0-9]+ dimensionless', model).group(0)).group(0))
@@ -100,10 +100,10 @@ def main():
 
     error = 1.0
     count = 0
-    while error > 0.01 and count < 10:
+    while error > 0.01 and count < 20:
 
         '''x1 side'''
-        with open('test_v2.mcdp', 'w') as f:
+        with open('cournot.mcdp', 'w') as f:
             f.write(model.replace(f'c1 = 0.0', f'c1 = 0.0').replace(f'c2 = 0.0', f'c2 = {x2_old}'))
 
         # solve for the z1 game
@@ -129,14 +129,14 @@ def main():
 
 
         # force x1 to be at the value found - c1
-        # with open('test_v2.mcdp', 'w') as f:
+        # with open('cournot.mcdp', 'w') as f:
         #     f.write(model.replace(f'c1 = 0.0', f'c1 = {x1}'))
         x1_error = abs(x1 - x1_old)
         x1_old = x1_old + alpha * (x1 - x1_old)
         print('x1', x1, 'z1', z1, 'x1_old', x1_old)
 
         '''x2 side'''
-        with open('test_v2.mcdp', 'w') as f:
+        with open('cournot.mcdp', 'w') as f:
             # f.write(model.replace(f'c2 = {x2_old}', f'c2 = 0.0'))
             f.write(model.replace(f'c1 = 0.0', f'c1 = {x1_old}').replace(f'c2 = 0.0', f'c2 = 0.0'))
 
@@ -163,7 +163,7 @@ def main():
 
 
         # force x1 to be at the value found - c1
-        # with open('test_v2.mcdp', 'w') as f:
+        # with open('cournot.mcdp', 'w') as f:
         #     f.write(model.replace(f'c2 = 0.0', f'c2 = {x2}'))
         x2_error = abs(x2 - x2_old)
         x2_old = x2_old + alpha * (x2 - x2_old)

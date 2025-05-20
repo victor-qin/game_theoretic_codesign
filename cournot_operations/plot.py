@@ -1,4 +1,9 @@
+'''
+Given data on the Pareto front and a Nash equilibrium point, this script generates a scatter plot.
+'''
+
 from decimal import Decimal
+import numpy as np
 import matplotlib.pyplot as plt
 
 # Reconstruct data as a list of tuples
@@ -67,8 +72,12 @@ ys = [float(y) for x, y in data]
 plt.figure(figsize=(6,6))
 plt.scatter(xs, ys, s=10, label='Pareto Front')
 plt.scatter(float(nash[0]), float(nash[1]), color='red', s=100, label='Nash Equilibrium')
+x_line = np.linspace(min(xs), 0.5, 100)
+y_line = 0.5 - x_line
+plt.plot(x_line, y_line, color='green', label='Social Welfare Optimal Line')
 plt.xlabel('x1')
 plt.ylabel('x2')
 plt.title('Scatter Plot of Provided Dataset')
 plt.axis('equal')
+plt.legend()
 plt.show()

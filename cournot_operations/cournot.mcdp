@@ -9,7 +9,7 @@ mcdp{
     multiply1 = instance `multiplying
     multiply2 = instance `multiplying
 
-    c1 = 0.0 dimensionless
+    c1 = 0.3324975 dimensionless
     c2 = 0.0 dimensionless
 
     required C >= C required by inverse
